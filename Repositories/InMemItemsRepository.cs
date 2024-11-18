@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Threading.Tasks;
 using Catalog.Entities;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 
@@ -16,29 +17,33 @@ namespace Catalog.Repositories
             new Item{Id=Guid.NewGuid(),Name="Bronze Shield", Price =18,CreatedDate=DateTimeOffset.UtcNow}
         };  
 
-        public IEnumerable<Item> GetItems(){
-            return items;
+        public async Task<IEnumerable<Item>> GetItemsAsync(){
+            return await Task.FromResult(items);
         }
 
-        public Item GetItem(Guid id){
-            return items.Where(x => x.Id == id).SingleOrDefault();
+        public async Task<Item> GetItemAsync(Guid id){
+            var item= items.Where(x => x.Id == id).SingleOrDefault();
+            return await Task.FromResult(item);
         }
 
-        public void CreateItem(Item item)
+        public async Task CreateItemAsync(Item item)
         {
             items.Add(item);
+            await Task.CompletedTask;
         }
 
-        public void UpdateItem(Item item)
+        public async Task UpdateItemAsync(Item item)
         {
             var index = items.FindIndex(i=>i.Id == item.Id);
             items[index] = item;
+            await Task.CompletedTask;
         }
 
-        public void DeleteItem(Guid id)
+        public async Task DeleteItemAsync(Guid id)
         {
             var index = items.FindIndex(i=>i.Id == id);
             items.RemoveAt(index);
+            await Task.CompletedTask;
         }
     }
 

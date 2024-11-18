@@ -37,3 +37,4 @@ c:\Users\PC\Desktop\Catalog\bin\Debug\net5.0\MongoDB.Driver.dll
 c:\Users\PC\Desktop\Catalog\bin\Debug\net5.0\SharpCompress.dll
 c:\Users\PC\Desktop\Catalog\bin\Debug\net5.0\Snappier.dll
 c:\Users\PC\Desktop\Catalog\bin\Debug\net5.0\ZstdSharp.dll
+c:\Users\PC\Desktop\Catalog\obj\Debug\net5.0\Catalog.sourcelink.json
